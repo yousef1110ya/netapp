@@ -25,8 +25,8 @@ public class AppointmentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long appointmentId;
 
-    private LocalDateTime appointmentDateTime;
-    private Integer durationMinutes;
+    private LocalDateTime startDateTime;
+    private LocalDateTime endDateTime;
 
     @Enumerated(EnumType.STRING)
     private AppointmentStatus status;
@@ -71,17 +71,17 @@ public class AppointmentEntity {
 	public void setAppointmentId(Long appointmentId) {
 		this.appointmentId = appointmentId;
 	}
-	public LocalDateTime getAppointmentDateTime() {
-		return appointmentDateTime;
+	public LocalDateTime getStartDateTime() {
+		return startDateTime;
 	}
-	public void setAppointmentDateTime(LocalDateTime appointmentDateTime) {
-		this.appointmentDateTime = appointmentDateTime;
+	public void setStartDateTime(LocalDateTime startDateTime) {
+		this.startDateTime = startDateTime;
 	}
-	public Integer getDurationMinutes() {
-		return durationMinutes;
+	public LocalDateTime getEndDateTime() {
+		return endDateTime;
 	}
-	public void setDurationMinutes(Integer durationMinutes) {
-		this.durationMinutes = durationMinutes;
+	public void setEndDateTime(LocalDateTime endDateTime) {
+		this.endDateTime = endDateTime;
 	}
 	public AppointmentStatus getStatus() {
 		return status;
@@ -143,4 +143,5 @@ public class AppointmentEntity {
 	public void setApprovedBy(UserEntity approvedBy) {
 		this.approvedBy = approvedBy;
 	}
+	
 }
