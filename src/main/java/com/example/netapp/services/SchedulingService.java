@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.example.netapp.dto.requests.AppointmentRequest;
@@ -12,6 +14,8 @@ import com.example.netapp.entity.AppointmentStatus;
 import com.example.netapp.entity.ServiceEntity;
 import com.example.netapp.entity.UserEntity;
 import com.example.netapp.exceptions.BadRequestException;
+import com.example.netapp.exceptions.HttpException;
+import com.example.netapp.exceptions.NotFoundException;
 import com.example.netapp.exceptions.SchedulingConflictException;
 import com.example.netapp.repository.AppointmentRepository;
 import com.example.netapp.repository.ServiceRepository;
@@ -39,7 +43,7 @@ public class SchedulingService {
 	    LocalDateTime end   = request.endDateTime();
 
 	    if (!end.isAfter(start)) {
-	        throw new IllegalArgumentException("End time must be after start time");
+	        throw new HttpException(HttpStatus.BAD_REQUEST,"End time must be after start time");
 	    }
 
 	    boolean collision =
@@ -50,16 +54,17 @@ public class SchedulingService {
 	    }
 
 	    AppointmentEntity appointment = new AppointmentEntity();
-	    UserEntity custormer = userRepo.findById(request.customerId()).orElse(null);
-	    ServiceEntity service = serviceRepo.findById(request.customerId()).orElse(null);
-	    if(custormer == null || service == null) {
-	    	throw new BadRequestException("customer id or service id is missing ");
+	    // this takes the user directly from the database and the token so all the fields are updated .
+	    UserEntity customer = (UserEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	    ServiceEntity service = serviceRepo.findById(request.serviceId()).orElse(null);
+	    if(service == null) {
+	    	throw new NotFoundException("customer id is not found");
 	    }
 	    
 	    appointment.setStartDateTime(start);
 	    appointment.setEndDateTime(end);
 	    appointment.setStatus(AppointmentStatus.PENDING);
-	    appointment.setCustomer(custormer);
+	    appointment.setCustomer(customer);
 	    appointment.setService(service);
 
 	    return appointmentRepository.save(appointment);

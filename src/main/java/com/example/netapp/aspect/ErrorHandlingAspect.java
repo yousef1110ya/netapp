@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import com.example.netapp.dto.responses.ErrorResponse;
 import com.example.netapp.exceptions.HttpException;
 
 @Aspect
@@ -22,7 +23,7 @@ public class ErrorHandlingAspect {
         }catch (HttpException ex) {
             return ResponseEntity
                     .status(ex.getStatus())
-                    .body(ex.getMessage());
+                    .body(new ErrorResponse(ex.getMessage()));
         }
     }
 }

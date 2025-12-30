@@ -1,7 +1,7 @@
 package com.example.netapp.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,7 @@ import com.example.netapp.entity.AppointmentEntity;
 import com.example.netapp.services.SchedulingService;
 
 @RestController 
-@RequestMapping("/public/schedual")
+@RequestMapping("/api/v1/schedual")
 public class SchedulingController {
 
 	private SchedulingService engine;
@@ -20,6 +20,8 @@ public class SchedulingController {
 		this.engine = engine;
 	}
 	
+	
+	@PreAuthorize("hasRole('CUSTOMER')")
 	@PostMapping
 	public ResponseEntity<?> createApplintment(@RequestBody AppointmentRequest req) {
 		AppointmentEntity appointment = engine.schedule(req);
