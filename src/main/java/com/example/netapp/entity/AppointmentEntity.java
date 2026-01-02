@@ -128,5 +128,12 @@ public class AppointmentEntity {
 		this.approvedBy = approvedBy;
 	}
 
+	public String getAppointmentDetails() {
+		return "\nID: " + appointmentId + ", For Service: " + service.getServiceName() + ", From " + startDateTime
+				+ " to "
+				+ endDateTime + " and total price of " + totalPrice + " USD";
+	}
+	
+
     
 }

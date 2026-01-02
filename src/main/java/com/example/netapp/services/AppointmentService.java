@@ -28,6 +28,9 @@ public class AppointmentService {
 	
 	@Autowired
 	private MailServices mail;
+
+	@Autowired
+	private NotificationService notificationService;
 	
 	public AppointmentEntity acceptAppointment(Long appointmentId) {
 		AppointmentEntity appointment = appointmentRepository.findById(appointmentId).orElseThrow(() -> new NotFoundException("appointment not found"));
@@ -37,8 +40,10 @@ public class AppointmentService {
 		/*
 		 * ADD NOTIFICATION SENDING ( IF WE CAN ADD IT AS A BACKGROUND JOB THAT WOULD HELP US EVEN MORE ) 
 		 */
-		String message = "we would love to tell you that your appointment " + appointment + " was accepted and confirmed " ;
+		String message = "we would love to tell you that your appointment " + appointment.getAppointmentDetails() + " was accepted and confirmed " ;
 		mail.sendEMail(appointment.getCustomer().getEmail(), "Appointment Accepted", message);
+
+		notificationService.notifyAppointmentApproved(appointment);
 		return appointment;
 	}
 	
@@ -49,8 +54,10 @@ public class AppointmentService {
 		/*
 		 * ADD NOTIFICATION SENDING ( IF WE CAN ADD IT AS A BACKGROUND JOB THAT WOULD HELP US EVEN MORE ) 
 		 */
-		String message = "we are sorry to tell you that your appointment " + appointment + " was rejected " ;
+		String message = "we are sorry to tell you that your appointment " + appointment.getAppointmentDetails() + " was rejected " ;
 		mail.sendEMail(appointment.getCustomer().getEmail(), "Appointment Rejected", message);
+
+		notificationService.notifyAppointmentRejected(appointment, "Contact the administrator for more information");
 		return appointment;
 	}
 	public AppointmentEntity cancelAppointment(Long appointmentId , Long id) {
@@ -65,8 +72,9 @@ public class AppointmentService {
 		/*
 		 * ADD NOTIFICATION SENDING ( IF WE CAN ADD IT AS A BACKGROUND JOB THAT WOULD HELP US EVEN MORE ) 
 		 */
-		String message = "we are sorry to tell you that your appointment " + appointment + " was canceled " ;
+		String message = "we are sorry to tell you that your appointment " + appointment.getAppointmentDetails() + " was canceled " ;
 		mail.sendEMail(appointment.getCustomer().getEmail(), "Appointment canceled", message);
+		notificationService.notifyAppointmentCancelled(appointment, appointment.getCustomer());
 		return appointment;
 	}
 	
@@ -99,8 +107,15 @@ public class AppointmentService {
 		appointment.setStartDateTime(start);
 		appointment.setEndDateTime(end);
 		appointment.setTotalPrice(totalPrice);
+
+		appointmentRepository.save(appointment);
+
+		String message = "Your appointment " + appointment.getAppointmentDetails()
+				+ " was created and is pending approval ";
+		mail.sendEMail(appointment.getCustomer().getEmail(), "Appointment Created", message);
+		notificationService.notifyAppointmentCreated(appointment);
 		
-		return appointmentRepository.save(appointment);
+		return appointment;
 		
 	}
 	
