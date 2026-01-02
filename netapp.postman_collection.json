@@ -1,0 +1,2672 @@
+{
+	"info": {
+		"_postman_id": "b7fbc147-2985-4818-b87a-a2e1bb9cf211",
+		"name": "netapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44674301"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"user1@gmail.com\",\r\n    \"username\":\"user1\",\r\n    \"password\":\"user1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "signup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"user1@gmail.com\",\r\n    \"username\":\"user1\",\r\n    \"password\":\"user1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 06:07:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"user\": {\n        \"userId\": 1,\n        \"email\": \"user1@gmail.com\",\n        \"username\": \"user1\"\n    }\n}"
+						},
+						{
+							"name": "signup - already signed in user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"user1@gmail.com\",\r\n    \"username\":\"user1\",\r\n    \"password\":\"user1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 07:31:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"User already exists\"\n}"
+						}
+					]
+				},
+				{
+					"name": "admin singup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin1@gmail.com\",\r\n    \"username\":\"admin1\",\r\n    \"password\":\"admin1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/signup-admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"signup-admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "admin singup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"admin1@gmail.com\",\r\n    \"username\":\"admin1\",\r\n    \"password\":\"admin1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/signup-admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"signup-admin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 06:08:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"user\": {\n        \"userId\": 2,\n        \"email\": \"admin1@gmail.com\",\n        \"username\": \"admin1\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin1@gmail.com\",\r\n    \"password\":\"admin1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login response for users,  admins and staff",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"user1@gmail.com\",\r\n    \"password\":\"user1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 06:09:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"userId\": 1,\n        \"email\": \"user1@gmail.com\",\n        \"username\": \"user1\"\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBnbWFpbC5jb20iLCJ1c2VySWQiOjEsInJvbGUiOiJDVVNUT01FUiIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3NjczMzQxOTgsImV4cCI6MTc2NzMzNzc5OH0.bHd438eWBfOMIxH--STNIthHdVL6bqmSS5sQYmqSNXM\"\n}"
+						}
+					]
+				},
+				{
+					"name": "staff-sign up ( needs an admin token )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAZ21haWwuY29tIiwidXNlcklkIjoyLCJyb2xlIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMSIsImlhdCI6MTc2NzMzODk3NCwiZXhwIjoxNzY3MzQyNTc0fQ.SZSifUEuZoGfcGCmYUXOI1u58CR117Y2s8Y-abph3As",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"staff1@gmail.com\",\r\n    \"username\":\"staff1\",\r\n    \"password\":\"staff1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/signup-staff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"signup-staff"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "staff sign in",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"staff1@gmail.com\",\r\n    \"username\":\"staff1\",\r\n    \"password\":\"staff1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/signup-staff",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"signup-staff"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "JSESSIONID=925A8879232465FB22589427D876C008; Path=/; HttpOnly"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 06:13:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"user\": {\n        \"userId\": 3,\n        \"email\": \"staff1@gmail.com\",\n        \"username\": \"staff1\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "appointments",
+			"item": [
+				{
+					"name": "get all appointments ( require a staff or an admin token )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAZ21haWwuY29tIiwidXNlcklkIjoyLCJyb2xlIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMSIsImlhdCI6MTc2NzM0MDU4OCwiZXhwIjoxNzY3MzQ0MTg4fQ.ZXJmc406nKvabqImkwaaHbiyiLt_Eftzh5KbT_O6pRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/appointments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"appointments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all appointments end point",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/appointments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"appointments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 07:43:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"appointmentId\": 1,\n        \"startDateTime\": \"2026-01-05T09:30:00\",\n        \"endDateTime\": \"2026-01-05T11:00:00\",\n        \"status\": \"PENDING\",\n        \"approvedAt\": null,\n        \"createdAt\": \"2026-01-02T10:43:21.262106\",\n        \"totalPrice\": 75,\n        \"customer\": {\n            \"userId\": 1,\n            \"email\": \"user1@gmail.com\",\n            \"username\": \"user1\"\n        },\n        \"service\": {\n            \"serviceName\": \"service1\",\n            \"description\": \"this is a fucking description\",\n            \"price\": 25,\n            \"active\": true,\n            \"durationMinutes\": 30,\n            \"createdAt\": null,\n            \"serviceId\": 1\n        },\n        \"approvedBy\": null\n    }\n]"
+						},
+						{
+							"name": "get all appointmets at the system",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/appointments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"appointments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 07:56:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"appointmentId\": 1,\n        \"startDateTime\": \"2026-01-05T09:30:00\",\n        \"endDateTime\": \"2026-01-05T11:00:00\",\n        \"status\": \"PENDING\",\n        \"approvedAt\": null,\n        \"createdAt\": \"2026-01-02T10:43:21.262106\",\n        \"totalPrice\": 75,\n        \"customer\": {\n            \"userId\": 1,\n            \"email\": \"user1@gmail.com\",\n            \"username\": \"user1\"\n        },\n        \"service\": {\n            \"serviceName\": \"service1\",\n            \"description\": \"this is a fucking description\",\n            \"price\": 25,\n            \"active\": true,\n            \"durationMinutes\": 30,\n            \"createdAt\": null,\n            \"serviceId\": 1\n        },\n        \"approvedBy\": null\n    },\n    {\n        \"appointmentId\": 2,\n        \"startDateTime\": \"2026-01-05T11:30:00\",\n        \"endDateTime\": \"2026-01-05T12:30:00\",\n        \"status\": \"PENDING\",\n        \"approvedAt\": null,\n        \"createdAt\": \"2026-01-02T10:56:14.313904\",\n        \"totalPrice\": 50,\n        \"customer\": {\n            \"userId\": 1,\n            \"email\": \"user1@gmail.com\",\n            \"username\": \"user1\"\n        },\n        \"service\": {\n            \"serviceName\": \"service1\",\n            \"description\": \"this is a fucking description\",\n            \"price\": 25,\n            \"active\": true,\n            \"durationMinutes\": 30,\n            \"createdAt\": null,\n            \"serviceId\": 1\n        },\n        \"approvedBy\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get my appointments ( require a customer token )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBnbWFpbC5jb20iLCJ1c2VySWQiOjEsInJvbGUiOiJDVVNUT01FUiIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3NjczMzk4NzMsImV4cCI6MTc2NzM0MzQ3M30.ix0ggQeHCF9ryyTcj3RbPnrxThWodNDudF7QbxCDOqs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/appointments/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"appointments",
+								"customer"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get my appointments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/appointments/customer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"appointments",
+										"customer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "JSESSIONID=A89172459A4CABAF4C62FC6F2A180A9B; Path=/; HttpOnly"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 07:52:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"appointmentId\": 1,\n        \"startDateTime\": \"2026-01-05T09:30:00\",\n        \"endDateTime\": \"2026-01-05T11:00:00\",\n        \"status\": \"PENDING\",\n        \"approvedAt\": null,\n        \"createdAt\": \"2026-01-02T10:43:21.262106\",\n        \"totalPrice\": 75,\n        \"customer\": {\n            \"userId\": 1,\n            \"email\": \"user1@gmail.com\",\n            \"username\": \"user1\"\n        },\n        \"service\": {\n            \"serviceName\": \"service1\",\n            \"description\": \"this is a fucking description\",\n            \"price\": 25,\n            \"active\": true,\n            \"durationMinutes\": 30,\n            \"createdAt\": null,\n            \"serviceId\": 1\n        },\n        \"approvedBy\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get user appointments ( require a staff or admin token )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAZ21haWwuY29tIiwidXNlcklkIjoyLCJyb2xlIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMSIsImlhdCI6MTc2NzM0MDU4OCwiZXhwIjoxNzY3MzQ0MTg4fQ.ZXJmc406nKvabqImkwaaHbiyiLt_Eftzh5KbT_O6pRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/appointments/customer/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"appointments",
+								"customer",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all appointment made by user 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/appointments/customer/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"appointments",
+										"customer",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 07:57:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"appointmentId\": 1,\n        \"startDateTime\": \"2026-01-05T09:30:00\",\n        \"endDateTime\": \"2026-01-05T11:00:00\",\n        \"status\": \"PENDING\",\n        \"approvedAt\": null,\n        \"createdAt\": \"2026-01-02T10:43:21.262106\",\n        \"totalPrice\": 75,\n        \"customer\": {\n            \"userId\": 1,\n            \"email\": \"user1@gmail.com\",\n            \"username\": \"user1\"\n        },\n        \"service\": {\n            \"serviceName\": \"service1\",\n            \"description\": \"this is a fucking description\",\n            \"price\": 25,\n            \"active\": true,\n            \"durationMinutes\": 30,\n            \"createdAt\": null,\n            \"serviceId\": 1\n        },\n        \"approvedBy\": null\n    },\n    {\n        \"appointmentId\": 2,\n        \"startDateTime\": \"2026-01-05T11:30:00\",\n        \"endDateTime\": \"2026-01-05T12:30:00\",\n        \"status\": \"PENDING\",\n        \"approvedAt\": null,\n        \"createdAt\": \"2026-01-02T10:56:14.313904\",\n        \"totalPrice\": 50,\n        \"customer\": {\n            \"userId\": 1,\n            \"email\": \"user1@gmail.com\",\n            \"username\": \"user1\"\n        },\n        \"service\": {\n            \"serviceName\": \"service1\",\n            \"description\": \"this is a fucking description\",\n            \"price\": 25,\n            \"active\": true,\n            \"durationMinutes\": 30,\n            \"createdAt\": null,\n            \"serviceId\": 1\n        },\n        \"approvedBy\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "cancel appointment ( require customer token )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBnbWFpbC5jb20iLCJ1c2VySWQiOjEsInJvbGUiOiJDVVNUT01FUiIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3NjczNDYwMzEsImV4cCI6MTc2NzM0OTYzMX0.uNU20B6OXEciHqsrgt6oOR2mn7ooT_LAax9BSHoUbA8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/appointments/3/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"appointments",
+								"3",
+								"cancel"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "cancelled service",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/appointments/3/cancel",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"appointments",
+										"3",
+										"cancel"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "JSESSIONID=5A68F601B00DAF5CC74187847AF9AF6F; Path=/; HttpOnly"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 09:28:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"appointmentId\": 3,\n    \"startDateTime\": \"2026-01-05T11:30:00\",\n    \"endDateTime\": \"2026-01-05T12:30:00\",\n    \"status\": \"CANCELLED\",\n    \"approvedAt\": null,\n    \"createdAt\": \"2026-01-02T12:25:17.182095\",\n    \"totalPrice\": 50,\n    \"customer\": {\n        \"userId\": 1,\n        \"email\": \"user1@gmail.com\",\n        \"username\": \"user1\"\n    },\n    \"service\": {\n        \"serviceName\": \"service1\",\n        \"description\": \"this is a fucking description\",\n        \"price\": 25,\n        \"active\": true,\n        \"durationMinutes\": 30,\n        \"createdAt\": null,\n        \"serviceId\": 1\n    },\n    \"approvedBy\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "cancel appointment by admin ( require admin token )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBnbWFpbC5jb20iLCJ1c2VySWQiOjEsInJvbGUiOiJDVVNUT01FUiIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3NjczNDYwMzEsImV4cCI6MTc2NzM0OTYzMX0.uNU20B6OXEciHqsrgt6oOR2mn7ooT_LAax9BSHoUbA8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/appointments/3/cancel/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"appointments",
+								"3",
+								"cancel",
+								"admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "cancelled service",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/appointments/3/cancel",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"appointments",
+										"3",
+										"cancel"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "JSESSIONID=5A68F601B00DAF5CC74187847AF9AF6F; Path=/; HttpOnly"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 09:28:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"appointmentId\": 3,\n    \"startDateTime\": \"2026-01-05T11:30:00\",\n    \"endDateTime\": \"2026-01-05T12:30:00\",\n    \"status\": \"CANCELLED\",\n    \"approvedAt\": null,\n    \"createdAt\": \"2026-01-02T12:25:17.182095\",\n    \"totalPrice\": 50,\n    \"customer\": {\n        \"userId\": 1,\n        \"email\": \"user1@gmail.com\",\n        \"username\": \"user1\"\n    },\n    \"service\": {\n        \"serviceName\": \"service1\",\n        \"description\": \"this is a fucking description\",\n        \"price\": 25,\n        \"active\": true,\n        \"durationMinutes\": 30,\n        \"createdAt\": null,\n        \"serviceId\": 1\n    },\n    \"approvedBy\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "get all pending appointments requests ( require admin token )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAZ21haWwuY29tIiwidXNlcklkIjoyLCJyb2xlIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMSIsImlhdCI6MTc2NzM0NTMwNiwiZXhwIjoxNzY3MzQ4OTA2fQ.DFdbjJ4_nWbKDxij8e1fPASrdKKkqW2q8lAYQK2DMFQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/appointments/pending",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"appointments",
+								"pending"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all pending appointments requests",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/appointments/pending",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"appointments",
+										"pending"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "JSESSIONID=EEBBD804C191BC4085FF241F4615CD76; Path=/; HttpOnly"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 08:27:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"appointmentId\": 1,\n        \"startDateTime\": \"2026-01-05T09:30:00\",\n        \"endDateTime\": \"2026-01-05T11:00:00\",\n        \"status\": \"PENDING\",\n        \"approvedAt\": null,\n        \"createdAt\": \"2026-01-02T10:43:21.262106\",\n        \"totalPrice\": 75,\n        \"customer\": {\n            \"userId\": 1,\n            \"email\": \"user1@gmail.com\",\n            \"username\": \"user1\"\n        },\n        \"service\": {\n            \"serviceName\": \"service1\",\n            \"description\": \"this is a fucking description\",\n            \"price\": 25,\n            \"active\": true,\n            \"durationMinutes\": 30,\n            \"createdAt\": null,\n            \"serviceId\": 1\n        },\n        \"approvedBy\": null\n    },\n    {\n        \"appointmentId\": 2,\n        \"startDateTime\": \"2026-01-05T11:30:00\",\n        \"endDateTime\": \"2026-01-05T12:30:00\",\n        \"status\": \"PENDING\",\n        \"approvedAt\": null,\n        \"createdAt\": \"2026-01-02T10:56:14.313904\",\n        \"totalPrice\": 50,\n        \"customer\": {\n            \"userId\": 1,\n            \"email\": \"user1@gmail.com\",\n            \"username\": \"user1\"\n        },\n        \"service\": {\n            \"serviceName\": \"service1\",\n            \"description\": \"this is a fucking description\",\n            \"price\": 25,\n            \"active\": true,\n            \"durationMinutes\": 30,\n            \"createdAt\": null,\n            \"serviceId\": 1\n        },\n        \"approvedBy\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "accept a request ( require admin token )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAZ21haWwuY29tIiwidXNlcklkIjoyLCJyb2xlIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMSIsImlhdCI6MTc2NzM0NzkzMiwiZXhwIjoxNzY3MzUxNTMyfQ.uqKCWAXpmW-MfyZ0vSUmp1DKNMBl9FeM4JoP58o3qYU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/appointments/4/accept",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"appointments",
+								"4",
+								"accept"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "accepted appointment",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/appointments/1/accept",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"appointments",
+										"1",
+										"accept"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 09:16:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"appointmentId\": 1,\n    \"startDateTime\": \"2026-01-05T09:30:00\",\n    \"endDateTime\": \"2026-01-05T11:00:00\",\n    \"status\": \"APPROVED\",\n    \"approvedAt\": \"2026-01-02T12:16:00.3076623\",\n    \"createdAt\": \"2026-01-02T10:43:21.262106\",\n    \"totalPrice\": 75,\n    \"customer\": {\n        \"userId\": 1,\n        \"email\": \"user1@gmail.com\",\n        \"username\": \"user1\"\n    },\n    \"service\": {\n        \"serviceName\": \"service1\",\n        \"description\": \"this is a fucking description\",\n        \"price\": 25,\n        \"active\": true,\n        \"durationMinutes\": 30,\n        \"createdAt\": null,\n        \"serviceId\": 1\n    },\n    \"approvedBy\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "accept an appointment ( require admin token )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAZ21haWwuY29tIiwidXNlcklkIjoyLCJyb2xlIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMSIsImlhdCI6MTc2NzM0NTMwNiwiZXhwIjoxNzY3MzQ4OTA2fQ.DFdbjJ4_nWbKDxij8e1fPASrdKKkqW2q8lAYQK2DMFQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/appointments/2/reject",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"appointments",
+								"2",
+								"reject"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "reject appointment",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/appointments/2/reject",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"appointments",
+										"2",
+										"reject"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 09:17:10 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"appointmentId\": 2,\n    \"startDateTime\": \"2026-01-05T11:30:00\",\n    \"endDateTime\": \"2026-01-05T12:30:00\",\n    \"status\": \"REJECTED\",\n    \"approvedAt\": \"2026-01-02T12:17:10.2569698\",\n    \"createdAt\": \"2026-01-02T10:56:14.313904\",\n    \"totalPrice\": 50,\n    \"customer\": {\n        \"userId\": 1,\n        \"email\": \"user1@gmail.com\",\n        \"username\": \"user1\"\n    },\n    \"service\": {\n        \"serviceName\": \"service1\",\n        \"description\": \"this is a fucking description\",\n        \"price\": 25,\n        \"active\": true,\n        \"durationMinutes\": 30,\n        \"createdAt\": null,\n        \"serviceId\": 1\n    },\n    \"approvedBy\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "service",
+			"item": [
+				{
+					"name": "create service ( require admin token )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAZ21haWwuY29tIiwidXNlcklkIjoyLCJyb2xlIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMSIsImlhdCI6MTc2NzMzODE3NSwiZXhwIjoxNzY3MzQxNzc1fQ.X-nbHEUQXFmKQyxwc64eGLrhzkFU3W0sa-t7E6J4ArA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"service2\",\r\n    \"description\":\"this is a fucking description\",\r\n    \"durationMinutes\":30,\r\n    \"price\":25.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/service",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"service"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create service response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"service1\",\r\n    \"description\":\"this is a fucking description\",\r\n    \"durationMinutes\":30,\r\n    \"price\":25.0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/service",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"service"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 06:17:49 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"serviceName\": \"service1\",\n    \"description\": \"this is a fucking description\",\n    \"price\": 25,\n    \"active\": true,\n    \"durationMinutes\": 30,\n    \"createdAt\": null,\n    \"serviceId\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "get availability of a service",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBnbWFpbC5jb20iLCJ1c2VySWQiOjEsInJvbGUiOiJDVVNUT01FUiIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3NjczNDc4NjksImV4cCI6MTc2NzM1MTQ2OX0.L1oQUbgmBd4Lzx2UCHGe7FWq32gMqjGCk8RV9b1QphI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/schedual/1/availability?date=2026-01-05",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"schedual",
+								"1",
+								"availability"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2026-01-05"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "availability of a service in a specefied date",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/schedual/1/availability?date=2026-01-05",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"schedual",
+										"1",
+										"availability"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2026-01-05"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 06:25:35 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"startTime\": \"09:00:00\",\n        \"endTime\": \"17:00:00\"\n    }\n]"
+						},
+						{
+							"name": "availability of a service but there are appointments booked in the middle",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/schedual/1/availability?date=2026-01-05",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"schedual",
+										"1",
+										"availability"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2026-01-05"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 06:45:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"startTime\": \"09:00:00\",\n        \"endTime\": \"09:30:00\"\n    },\n    {\n        \"startTime\": \"11:00:00\",\n        \"endTime\": \"17:00:00\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get all services",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBnbWFpbC5jb20iLCJ1c2VySWQiOjEsInJvbGUiOiJDVVNUT01FUiIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3NjczMzk3NzYsImV4cCI6MTc2NzM0MzM3Nn0.t5FhsrUYGc6WPK_Cky6CtHLpzKdkaAJau0nBrMsV7fc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/service",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"service"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all services response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/service",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"service"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 07:16:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"serviceName\": \"service1\",\n        \"description\": \"this is a fucking description\",\n        \"price\": 25,\n        \"active\": true,\n        \"durationMinutes\": 30,\n        \"createdAt\": null,\n        \"serviceId\": 1\n    },\n    {\n        \"serviceName\": \"service2\",\n        \"description\": \"this is a fucking description\",\n        \"price\": 25,\n        \"active\": true,\n        \"durationMinutes\": 30,\n        \"createdAt\": null,\n        \"serviceId\": 2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "book an appointment for a service ( require a customer token )",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBnbWFpbC5jb20iLCJ1c2VySWQiOjEsInJvbGUiOiJDVVNUT01FUiIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3NjczNDc4NjksImV4cCI6MTc2NzM1MTQ2OX0.L1oQUbgmBd4Lzx2UCHGe7FWq32gMqjGCk8RV9b1QphI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"startDateTime\": \"2026-01-05T11:30:00\",\r\n  \"sessionsBooked\": 2,\r\n  \"serviceId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/schedual",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"schedual"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "response of a booked appointment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"startDateTime\": \"2026-01-05T09:30:00\",\r\n  \"sessionsBooked\": 3,\r\n  \"serviceId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/schedual",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"schedual"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 06:44:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"appointmentId\": 1,\n    \"startDateTime\": \"2026-01-05T09:30:00\",\n    \"endDateTime\": \"2026-01-05T11:00:00\",\n    \"status\": \"PENDING\",\n    \"approvedAt\": null,\n    \"createdAt\": \"2026-01-02T09:44:39.7373424\",\n    \"totalPrice\": 75,\n    \"customer\": {\n        \"userId\": 2,\n        \"email\": \"user1@gmail.com\",\n        \"username\": \"user1\"\n    },\n    \"service\": {\n        \"serviceName\": \"service1\",\n        \"description\": \"this is a fucking description\",\n        \"price\": 25,\n        \"active\": true,\n        \"durationMinutes\": 30,\n        \"createdAt\": null,\n        \"serviceId\": 1\n    },\n    \"approvedBy\": null\n}"
+						},
+						{
+							"name": "the appointment you choose overlaps",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"startDateTime\": \"2026-01-05T09:00:00\",\r\n  \"sessionsBooked\": 2,\r\n  \"serviceId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/schedual",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"schedual"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 07:58:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"the time chosen for this service overlaps with the another one \"\n}"
+						}
+					]
+				},
+				{
+					"name": "get the service schedule at a specefied day of week",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAZ21haWwuY29tIiwidXNlcklkIjoyLCJyb2xlIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMSIsImlhdCI6MTc2NzM0ODk2OCwiZXhwIjoxNzY3MzUyNTY4fQ.7ceGHp539ZWT4DFiVM2Xp1zvNwaLUPcnDbzbMQBS32I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/working-schedules/service/1?dayOfWeek=TUESDAY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"working-schedules",
+								"service",
+								"1"
+							],
+							"query": [
+								{
+									"key": "dayOfWeek",
+									"value": "TUESDAY"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get the service schedule at a specefied day of week",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/working-schedules/service/1?dayOfWeek=SUNDAY",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"working-schedules",
+										"service",
+										"1"
+									],
+									"query": [
+										{
+											"key": "dayOfWeek",
+											"value": "SUNDAY"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 07:20:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"dayOfWeek\": \"SUNDAY\",\n        \"startTime\": \"09:00:00\",\n        \"endTime\": \"17:00:00\",\n        \"validFrom\": null,\n        \"validTo\": null,\n        \"service\": {\n            \"serviceName\": \"service1\",\n            \"description\": \"this is a fucking description\",\n            \"price\": 25,\n            \"active\": true,\n            \"durationMinutes\": 30,\n            \"createdAt\": null,\n            \"serviceId\": 1\n        },\n        \"id\": 1\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "update a service working schedule",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAZ21haWwuY29tIiwidXNlcklkIjoyLCJyb2xlIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMSIsImlhdCI6MTc2NzM0ODk2OCwiZXhwIjoxNzY3MzUyNTY4fQ.7ceGHp539ZWT4DFiVM2Xp1zvNwaLUPcnDbzbMQBS32I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"dayOfWeek\": \"TUESDAY\",\r\n        \"startTime\": \"09:00\",\r\n        \"endTime\": \"17:00\",\r\n        \"validFrom\": \"2026-01-01\",\r\n        \"validTo\": \"2026-06-30\"\r\n    },\r\n    {\r\n        \"dayOfWeek\": \"WEDNESDAY\",\r\n        \"startTime\": \"12:00\",\r\n        \"endTime\": \"20:00\",\r\n        \"validFrom\": \"2026-01-01\",\r\n        \"validTo\": \"2026-06-30\"\r\n    }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/working-schedules/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"working-schedules",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update working schedule res",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"dayOfWeek\": \"TUESDAY\",\r\n        \"startTime\": \"09:00\",\r\n        \"endTime\": \"17:00\",\r\n        \"validFrom\": \"2026-01-01\",\r\n        \"validTo\": \"2026-06-30\"\r\n    },\r\n    {\r\n        \"dayOfWeek\": \"WEDNESDAY\",\r\n        \"startTime\": \"12:00\",\r\n        \"endTime\": \"20:00\",\r\n        \"validFrom\": \"2026-01-01\",\r\n        \"validTo\": \"2026-06-30\"\r\n    }\r\n]\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/working-schedules/update/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"working-schedules",
+										"update",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "JSESSIONID=5814032A04356A53DBBB908A781A0501; Path=/; HttpOnly"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 10:16:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Working schedule updated successfully"
+						}
+					]
+				}
+			]
+		}
+	]
+}
