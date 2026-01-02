@@ -68,7 +68,7 @@ public class NotificationService {
         sendNotificationToUser(
                 appointment.getCustomer(),
                 "Appointment Created",
-                "Your appointment has been created and is pending approval",
+                "Your appointment has been created and is pending approval" + appointment.getAppointmentDetails(),
                 NotificationType.APPOINTMENT_CREATED,
                 appointment);
 
@@ -77,7 +77,7 @@ public class NotificationService {
         sendNotificationToUser(
                 admin,
                 "New Appointment Assignment",
-                "You have been assigned a new appointment pending approval.",
+                "You have been assigned a new appointment pending approval." + appointment.getAppointmentDetails(),
                 NotificationType.APPOINTMENT_CREATED,
                 appointment);
         }
@@ -87,7 +87,7 @@ public class NotificationService {
     @Async
     public void notifyAppointmentApproved(AppointmentEntity appointment) {
         sendNotificationToUser(appointment.getCustomer(), "Appointment Approved",
-                "Your appointment has been approved and confirmed.", NotificationType.APPOINTMENT_APPROVED,
+                "Your appointment has been approved and confirmed." + appointment.getAppointmentDetails(), NotificationType.APPOINTMENT_APPROVED,
                 appointment);
 
     }
@@ -95,7 +95,7 @@ public class NotificationService {
     @Transactional
     @Async
     public void notifyAppointmentRejected(AppointmentEntity appointment, String reason) {
-        String message = "Your appointment has been rejected." + (reason != null ? " Reason: " + reason : "");
+        String message = "Your appointment has been rejected." + appointment.getAppointmentDetails() + (reason != null ? " Reason: " + reason : "");
 
         sendNotificationToUser(appointment.getCustomer(), "Appointment Rejected",
                 message, NotificationType.APPOINTMENT_REJECTED, appointment);
@@ -104,7 +104,7 @@ public class NotificationService {
     @Transactional
     @Async
     public void notifyAppointmentCancelled(AppointmentEntity appointment, UserEntity cancelledBy) {
-        String message = "Your appointment has been cancelled."
+        String message = "Your appointment has been cancelled." + appointment.getAppointmentDetails()
                 + (cancelledBy != null ? " Cancelled by: " + cancelledBy.getUsername() : "");
 
         if (cancelledBy.getUserId() != appointment.getCustomer().getUserId()) {
